@@ -4,14 +4,14 @@ import tw from 'twrnc'
 
 const {width, height} = Dimensions.get('window')
 
-export const MovieCard = ({data, handleClick}) => {
+export const MovieCard = ({item, handleClick}) => {
     const customStyle = {
         width: width * 0.6,
         height: height * 0.4,
       };
 
     return (
-        <TouchableWithoutFeedback onPress={handleClick}>
+        <TouchableWithoutFeedback onPress={() =>handleClick(item)}>
             <Image
                 source={require("../assets/images/moviePoster1.png")}
                 style={[customStyle, tw`rounded-3xl`]} 

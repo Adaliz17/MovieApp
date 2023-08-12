@@ -8,6 +8,9 @@ import { styles } from '../theme'
 import TrendingMovies from '../components/trendingMovies'
 import MovieList from '../components/movieList'
 
+const ios = Platform.OS === 'ios'
+const topMargin = ios ? '' : 'mt-3'
+
 export default function HomeScreen() {
     const [trending, setTrendig] = useState([1,2,3])
     const [upcoming, setUpcoming] = useState([1,2,3])
@@ -17,7 +20,7 @@ export default function HomeScreen() {
         <View style={tw`flex-1 bg-neutral-800`}>
             <SafeAreaView style={tw`mb-3`}>
                 <StatusBar style='light' />
-                <View style={tw`flex-row justify-between items-center mx-4`}>
+                <View style={tw`flex-row justify-between items-center mx-4 ${topMargin}`}>
                     <Bars3CenterLeftIcon size="30" strokeWidth={2} color="white" />
                     <Text
                     style={tw`text-white text-3xl font-bold`}>
@@ -37,6 +40,8 @@ export default function HomeScreen() {
                 <TrendingMovies data={trending} />
                 {/* Upcoming movies row */}
                 <MovieList title="Upcoming" data={upcoming} />
+                {/* Top Rated movies row */}
+                <MovieList title="Top Rated" data={topRate} />
             </ScrollView>
         </View>
     )
