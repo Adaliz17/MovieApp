@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React, {useState} from 'react'
-import tw from 'twrnc'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import { Bars3CenterLeftIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
@@ -17,13 +16,13 @@ export default function HomeScreen() {
     const [topRate, setTopRate] = useState([1,2,3])
     
     return (
-        <View style={tw`flex-1 bg-neutral-800`}>
-            <SafeAreaView style={tw`mb-3`}>
+        <View className="flex-1 bg-neutral-800">
+            <SafeAreaView className="mb-3">
                 <StatusBar style='light' />
-                <View style={tw`flex-row justify-between items-center mx-4 ${topMargin}`}>
+                <View className={`flex-row justify-between items-center mx-4 ${topMargin}`}>
                     <Bars3CenterLeftIcon size="30" strokeWidth={2} color="white" />
                     <Text
-                    style={tw`text-white text-3xl font-bold`}>
+                    className="text-white text-3xl font-bold">
                         <Text style={styles.text}>M</Text>ovies
                     </Text>
                     <TouchableOpacity>
@@ -41,7 +40,7 @@ export default function HomeScreen() {
                 {/* Upcoming movies row */}
                 <MovieList title="Upcoming" data={upcoming} />
                 {/* Top Rated movies row */}
-                <MovieList title="Top Rated" data={topRate} />
+                <MovieList title="Top Rated" hideSeeAll={false} data={topRate} />
             </ScrollView>
         </View>
     )
