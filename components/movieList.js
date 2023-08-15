@@ -36,7 +36,7 @@ export default function MovieList({title, data, hideSeeAll}) {
             return(
               <TouchableOpacity
                 key={index}
-                onPress={()=> navigation.navigate('Movie', item)}
+                onPress={()=> navigation.push('Movie', item)}
               >
                 <View className="space-y-1 mr-4">
                   <Image 
